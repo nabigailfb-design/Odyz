@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #e8dfd4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+}
+
+.contenedor {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1500px;
+}
+
+.libro {
+    width: min(80vw, 500px);
+    position: relative;
+    transform-style: preserve-3d;
+    filter: drop-shadow(15px 20px 25px rgba(0,0,0,0.3));
+}
+
+.pagina {
+    width: 100%;
+    display: none;
+    transform-origin: left center;
+    backface-visibility: hidden;
+}
+
+.pagina.activa {
+    display: block;
+}
+
+.pagina img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+}
+
+#abrir,
+#siguiente {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    background: rgba(255,255,255,0.85);
+    padding: 12px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#abrir {
+    bottom: 8%;
+}
+
+#siguiente {
+    right: 5%;
+    bottom: 8%;
+    font-size: 24px;
+    padding: 8px 16px;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.entrar {
+    animation: aparecer 1.5s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
